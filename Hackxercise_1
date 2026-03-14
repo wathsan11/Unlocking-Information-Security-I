@@ -1,0 +1,61 @@
+import time
+import sys # ignore
+sys.path.insert(0,'.') # ignore
+from Root.pswd import real_password
+
+def check_password(password): # Don't change it
+    if len(password) != len(real_password):
+        return False
+    for x, y in zip(password, real_password):
+        time.sleep(0.1) # Simulates the wait time of the safe's mechanism
+        if int(x) != int(y):
+            return False
+    return True
+
+def crack_password():
+
+    t1=[]
+    
+    for i in range(10):
+        start = time.time()
+        check_password(str(i)+"000")
+        end = time.time()
+        t = end-start
+        t1.append(t)
+    w1 = t1.index(max(t1))
+    
+    t2 = []
+    for i in range(10):
+        start = time.time()
+        check_password(str(w1)+str(i)+"00")
+        end = time.time()
+        t = end-start
+        t2.append(t)
+    w2 = t2.index(max(t2))
+    
+    t3 = []
+    for i in range(10):
+        start = time.time()
+        check_password(str(w1)+str(w2)+str(i)+"0")
+        end = time.time()
+        t = end-start
+        t3.append(t)
+    w3 = t3.index(max(t3))
+    
+    
+    # t4 = []
+    for i in range(10):
+        # start = time.time()
+        if (check_password(str(w1)+str(w2)+str(w3)+str(i))== True):
+            w4 = i
+        
+        # end = time.time()
+        # t = end-start
+        # t4.append(t)
+    # w4 = t4.index(max(t4))
+    
+    passw = str(w1)+str(w2)+str(w3)+str(w4)
+    
+    
+    return passw # return cracked password
+    
