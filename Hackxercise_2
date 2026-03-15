@@ -1,0 +1,19 @@
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+
+
+def encrypt(plaintext, k):
+    
+    cipher_txt =""
+    
+    for c in plaintext:
+        
+        current_idx = alphabet.index(c)
+        
+        new_index = (current_idx - k)%26
+        
+        cipher_txt += alphabet[new_index]
+        
+    return cipher_txt
+        
+    # do stuff and return ciphertext
