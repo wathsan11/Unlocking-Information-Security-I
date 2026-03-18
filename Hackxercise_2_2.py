@@ -1,3 +1,11 @@
+# Below is code that implements an InvertedCaesar cipher: its encryption shifts letters k places forward.
+
+# Find the plaintext and key of the following message that was encrypted using InvertedCaesar
+
+# kyvtrmrcipnzccrkkrtbwifdkyvefikynvjkrkeffe
+
+
+
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 def encrypt(plaintext, k):
